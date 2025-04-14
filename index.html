@@ -84,12 +84,14 @@
     </style>
 </head>
 <body>
+   <div id="startOverlay" style="position:fixed; inset:0; background:black; color:white; display:flex; justify-content:center; align-items:center; z-index:9999; cursor:pointer;">
+    <h1>Click to Start</h1>
+  </div>
     <div id="videoWrapper">
-        <video id="myVideo" autoplay muted loop playsinline preload="auto" poster="poster.png">
+        <video id="myVideo" controls autoplay muted loop playsinline preload="auto" poster="poster.png">
           <source src="storied.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-    
         <a
           id="ctaButton"
           href="https://calendar.google.com/calendar/u/2/r/eventedit/NGhpZ3Vqam1tNjBxZWhqYnRwYTFxbzVua24gcmhhcnJpc29uQGV2ZXJ5ZGF5aGVhbHRoZ3JvdXAuY29t"
@@ -98,6 +100,15 @@
           LEARN MORE
         </a>
       </div>
+      <script>
+        const overlay = document.getElementById('startOverlay');
+        const video = document.getElementById('myVideo');
+    
+        overlay.addEventListener('click', () => {
+          overlay.style.display = 'none';
+          video.play();
+        });
+      </script>
       <script>
         const video = document.getElementById('myVideo');
         const button = document.getElementById('ctaButton');
