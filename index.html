@@ -101,6 +101,17 @@
         </a>
       </div>
       <script>
+         // Loop check every 100ms
+         setInterval(() => {
+          const time = video.currentTime;
+      
+          if (time >= 23 && time < 26) {
+            button.style.display = 'block';
+          } else {
+            button.style.display = 'none';
+          }
+        }, 100);
+
         const overlay = document.getElementById('startOverlay');
         const myvideo = document.getElementById('myVideo');
     
@@ -112,16 +123,6 @@
         const video = document.getElementById('myVideo');
         const button = document.getElementById('ctaButton');
       
-        // Loop check every 100ms
-        setInterval(() => {
-          const time = video.currentTime;
-      
-          if (time >= 23 && time < 26) {
-            button.style.display = 'block';
-          } else {
-            button.style.display = 'none';
-          }
-        }, 100);
       </script>
 </body>
 </html>
