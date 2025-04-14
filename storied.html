@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storied</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #videoWrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #myVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        #ctaButton {
+            position: absolute;
+            left: 50%;
+            width: 100%;
+            bottom: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+            text-align: center;
+            display: none;
+            z-index: 10;
+            /* Glow effect */
+             box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.3);
+            /* Text glow */
+            text-shadow: 0 0 6px white, 0 0 12px #00ffff;
+            /* Pulsate animation */
+            animation: pulse 2s infinite;
+            }
+
+/* Fix: Move it up for smaller screens */
+@media (max-width: 600px) {
+  #ctaButton {
+    bottom: auto;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 100%;
+    font-size: 16px;
+}
+  #myVideo {
+    object-fit: contain;
+ }
+}
+
+  
+
+  @keyframes pulse {
+    0% {
+      transform: translateX(-50%) scale(1);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.3);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 45px rgba(0, 255, 255, 0.6);
+    }
+    100% {
+      transform: translateX(-50%) scale(1);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.3);
+    }
+  }
+    </style>
+</head>
+<body>
+    <div id="videoWrapper">
+        <video id="myVideo" autoplay muted loop>
+          <source src="storied.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+    
+        <a
+          id="ctaButton"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=BLOOM+%28The+Moth%29+%40+The+Grey+Eagle&dates=20250418T223000Z/20250419T013000Z&details=An+evening+of+short+true+stories%2C+shared+by+your+colleagues.+Listen%2C+laugh%2C+connect.%0A%0AThe+following+months%2C+we+will+host+a+similar+style+of+virtual+events+among+CPM+colleagues+who+want+to+learn+more+about+each+other+and+practice+using+their+voices+and+ears.+It+will+be+fun%2C+interactive%2C+informative%2C+and+above+all+it+will+sharpen+your+most+powerful+tool%21&location=The+Grey+Eagle%2C+Asheville+NC"
+          target="_blank"
+        >
+          LEARN MORE
+        </a>
+      </div>
+      <script>
+        const video = document.getElementById('myVideo');
+        const button = document.getElementById('ctaButton');
+      
+        // Loop check every 100ms
+        setInterval(() => {
+          const time = video.currentTime;
+      
+          if (time >= 23 && time < 26) {
+            button.style.display = 'block';
+          } else {
+            button.style.display = 'none';
+          }
+        }, 100);
+      </script>
+</body>
+</html>
